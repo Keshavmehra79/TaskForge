@@ -30,7 +30,11 @@ const fetchStats = async () => {
 
 useEffect(() => {
   fetchStats();
-  
+  let admin = localStorage.getItem("admin");
+  if(!admin){
+    navigate("/")
+  }
+
 }, []);
 
 console.log(stats.completedTasks)

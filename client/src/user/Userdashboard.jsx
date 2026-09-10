@@ -1,9 +1,21 @@
+import { useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const UserDashBoard = () => {
   const username = localStorage.getItem("username");
   const nav=useNavigate()
+  useEffect(()=>{
+        if(!username){
+          nav("/")
+        }
+  },[])
+        
+  //Logout
+  const LogOut=()=>{
+      localStorage.clear("useremail","userid","username")
 
+    nav("/")
+  }
   return (
     <>
       <div className="min-h-screen flex bg-gray-100">
@@ -50,9 +62,11 @@ const UserDashBoard = () => {
           {/* Header */}
           <div className="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
             <h1 className="text-xl font-bold">User Dashboard</h1>
+             <button onClick={LogOut}  className=" ml-150 hover:cursor-pointer bg-red-600 px-2 border-1px rounded-2xl">Logout</button>
             <span className="bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">
               {username}
             </span>
+
           </div>
 
           {/* Welcome */}
