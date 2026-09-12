@@ -22,7 +22,7 @@ const clientid = process.env.CLIENT_ID;
 
 const clientsecret = process.env.CLIENT_SECRET;
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://task-management-rose-phi-22.vercel.app/",
     methods: "GET, POST, PUT, DELETE",
     credentials: true
 }));
