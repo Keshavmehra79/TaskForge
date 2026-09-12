@@ -22,7 +22,7 @@ const clientid = process.env.CLIENT_ID;
 
 const clientsecret = process.env.CLIENT_SECRET;
 app.use(cors({
-    origin: "https://task-management-rose-phi-22.vercel.app",
+    origin: process.env.CLIENT_URL,
     methods: "GET, POST, PUT, DELETE",
     credentials: true
 }));
@@ -30,7 +30,7 @@ app.use(cors({
 app.use(express.json());
 // setup session
 app.use(session({
-    secret: "sachin1234",
+    secret:process.env.SESSION_SECRET ,
     resave: false,
     saveUninitialized: true
 }))
