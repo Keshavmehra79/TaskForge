@@ -46,7 +46,7 @@ passport.use(
 new OAuth2Strategy({
     clientID: clientid,
     clientSecret: clientsecret,
-    callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
+    callbackURL: `https://taskforge-85zm.onrender.com/auth/google/callback`,
     scope: ["profile", "email"]
 },
 
