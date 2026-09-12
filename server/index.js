@@ -22,7 +22,7 @@ const clientid = process.env.CLIENT_ID;
 
 const clientsecret = process.env.CLIENT_SECRET;
 app.use(cors({
-    origin: "https://task-management-rose-phi-22.vercel.app/",
+    origin: "https://task-management-rose-phi-22.vercel.app",
     methods: "GET, POST, PUT, DELETE",
     credentials: true
 }));
@@ -109,7 +109,7 @@ app.use("/admin",adminRouter);
 app.use("/user",userRouter);
 
 const PORT=process.env.PORT || 9000 
-app.listen(process.env.PORT,()=>{
+app.listen(PORT,()=>{
     console.log(`server running on ${PORT}`);
     
 })
