@@ -108,7 +108,7 @@ app.get("/auth/google/callback", passport.authenticate("google", {
 app.use("/admin",adminRouter);
 app.use("/user",userRouter);
 
-const PORT=process.env.BACKEND_URL || 9000 
+const PORT=process.env.BACKEND_URL  
 app.listen(PORT,()=>{
     console.log(`server running on ${PORT}`);
     
