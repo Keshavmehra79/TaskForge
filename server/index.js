@@ -46,7 +46,7 @@ passport.use(
 new OAuth2Strategy({
     clientID: clientid,
     clientSecret: clientsecret,
-    callbackURL: "http://localhost:9000/auth/google/callback",
+    callbackURL: `${process.env.PORT}/auth/google/callback`,
     scope: ["profile", "email"]
 },
 
@@ -88,8 +88,8 @@ app.get("/auth/google", passport.authenticate("google", {
 }));
 
 app.get("/auth/google/callback", passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/admindashboard",
-    failureRedirect: "http://localhost:5173"
+    successRedirect: "https://task-management-rose-phi-22.vercel.app/admindashboard",
+    failureRedirect: "https://task-management-rose-phi-22.vercel.app/"
 
 }))
 
@@ -108,8 +108,9 @@ app.get("/auth/google/callback", passport.authenticate("google", {
 app.use("/admin",adminRouter);
 app.use("/user",userRouter);
 
+const PORT=process.env.PORT || 9000 
 app.listen(process.env.PORT,()=>{
-    console.log("server run on 9000 port ");
+    console.log(`server running on ${PORT}`);
     
 })
 

@@ -10,7 +10,7 @@ const Home = () => {
   const [usertype, setUserType] = useState("");
 
   const googleLogin=()=>{
-       window.open("http://localhost:9000/auth/google", "_self");
+       window.open(`${import.meta.env.VITE_API_URL}/auth/google`, "_self");
   }
 
 
